@@ -5,7 +5,7 @@ valid(sub(E1,E2)):-valid(E1),valid(E2).
 valid(mul(E1,E2)):-valid(E1),valid(E2).
 valid(dvd(E1,E2)):-valid(E1),valid(E2).
 
-/* This relation can be used to compute the value of an expression AST. */
+/* This relation is used to compute the value of an expression AST. */
 value(num(X),X).
 value(add(E1,E2),V):-value(E1,V1),value(E2,V2),V is V1+V2.
 value(sub(E1,E2),V):-value(E1,V1),value(E2,V2),V is V1-V2.
@@ -27,13 +27,11 @@ isTokenList([]).
 isTokenList([H|T]):-isToken(H),isTokenList(T).
 
 
-/* These relations just let us store sample lists of tokens for later use. */
+/* These relations stores sample lists of tokens for later use. */
 e1( [numT(3)] ).
 e2( [numT(1), plusT, numT(2)] ).
 e3( [numT(1), plusT, numT(2), starT, numT(3)] ).
 e4( [lparenT, numT(1), plusT, numT(2), rparenT, starT, numT(3)] ).
-
-/* These relations provide the token lists from Problem 3 of Homework 3. */
 ea( [numT(13)] ).
 eb( [numT(1), plusT, numT(4), starT, numT(2)] ).
 ec( [numT(9), dashT, numT(2), slashT, numT(3)] ).
@@ -42,8 +40,6 @@ ed( [lparenT, numT(4), plusT, numT(7), rparenT, starT, numT(5)] ).
 /*
 Author: AMBUJ NAYAN
 Email:  nayan003@umn.edu
-
-Platform: Linux
 
 Program Logic:
 ==============
